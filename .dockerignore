@@ -1,14 +1,16 @@
-# Keep build context small; allow only the shaded fat JAR inside target
+# exclude big target except the shaded jar (not used now, but ok)
 target/*
 !target/world-population-app.jar
 
-# never send these to Docker context
+# DO NOT exclude the wrapper or build files (needed by multi-stage build)
+# .mvn/   <-- allowed
+# mvnw    <-- allowed
+
+# keep these out of the context
 .git
 .github
 .gitignore
-.mvn/
 .idea/
 .vscode/
 *.iml
 **/.DS_Store
-README.md
