@@ -1,0 +1,38 @@
+﻿name: User Story
+description: Create a user story (INVEST) for coursework features
+title: "[Story] <concise goal>"
+labels: ["story"]
+assignees: []
+body:
+  - type: textarea
+    id: as-a
+    attributes:
+      label: As a
+      description: Who is the user/persona?
+    validations: { required: true }
+  - type: textarea
+    id: i-want
+    attributes:
+      label: I want
+      description: What is the capability?
+    validations: { required: true }
+  - type: textarea
+    id: so-that
+    attributes:
+      label: So that
+      description: Why do they need it (value)?
+    validations: { required: true }
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Given/When/Then bullet list
+      placeholder: |
+        - GIVEN ..., WHEN ..., THEN ...
+        - GIVEN ..., WHEN ..., THEN ...
+    validations: { required: true }
+  - type: input
+    id: requirement-id
+    attributes:
+      label: Assessment Requirement ID(s)
+      description: e.g., R07–R16 / R23–R25

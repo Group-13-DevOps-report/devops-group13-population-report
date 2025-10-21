@@ -1,0 +1,27 @@
+﻿name: Bug Report
+description: File a defect found in CI, Docker, or the app
+title: "[Bug] <short summary>"
+labels: ["bug"]
+assignees: []
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: 1) ..., 2) ..., 3) ...
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+    validations: { required: true }
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+    validations: { required: true }
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: ["CI", "Docker", "App", "Docs"]
