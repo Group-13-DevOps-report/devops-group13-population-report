@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+actor ""Analyst/Stakeholder"" as Analyst
+rectangle ""World Population App"" {
+  usecase ""UC-01 View Country Reports"" as UC01
+  usecase ""UC-02 View City Reports"" as UC02
+  usecase ""UC-03 View Capital City Reports"" as UC03
+  usecase ""UC-04 View Population Aggregates"" as UC04
+  usecase ""UC-05 View Language Statistics"" as UC05
+}
+Analyst --> UC01
+Analyst --> UC02
+Analyst --> UC03
+Analyst --> UC04
+Analyst --> UC05
+note right of UC01
+Country report:
+Code, Name, Continent,
+Region, Population, Capital
+end note
+note right of UC02
+City report:
+Name, Country, District, Population
+end note
+note right of UC03
+Capital city report:
+Name, Country, Population
+end note
+note right of UC04
+Population report:
+Totals + % in/out of cities
+end note
+note right of UC05
+Language stats for 5 languages
+end note
+@enduml

@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ develop, master, "feature/**", "release/**" ]
+  pull_request:
+    branches: [ develop, master, "feature/**", "release/**" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "24"
+      - name: Ensure mvnw is executable
+        run: chmod +x mvnw
+      - name: Build & test (Maven Wrapper)
+        run: ./mvnw -B -ntp "-Dstyle.color=always" clean verify
+
+  docker:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image (multi-stage)
+        run: docker build --pull -t sem-app:ci .
+      - name: Smoke test - image exists
+        run: docker image inspect sem-app:ci >/dev/null

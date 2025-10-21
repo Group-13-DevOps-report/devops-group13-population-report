@@ -1,0 +1,16 @@
+# exclude big target except the shaded jar (not used now, but ok)
+target/*
+!target/world-population-app.jar
+
+# DO NOT exclude the wrapper or build files (needed by multi-stage build)
+# .mvn/   <-- allowed
+# mvnw    <-- allowed
+
+# keep these out of the context
+.git
+.github
+.gitignore
+.idea/
+.vscode/
+*.iml
+**/.DS_Store
