@@ -39,3 +39,5 @@ build/
 world-db/*.sql
 world-db/*.gz
 world-db/*.zip
+
+.env
