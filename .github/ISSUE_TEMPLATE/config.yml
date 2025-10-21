@@ -1,5 +1,5 @@
 ﻿blank_issues_enabled: false
 contact_links:
-  - name: Zube Board (Backlog / Sprint)
-    url: https://zube.io/                         # put your project URL
-    about: Please move created issues into the correct Zube pipeline.
+  - name: Zube Board (connect after GitHub setup)
+    url: https://zube.io/            # put your real Zube project URL later
+    about: Move created issues into the correct Zube pipeline after linking.
