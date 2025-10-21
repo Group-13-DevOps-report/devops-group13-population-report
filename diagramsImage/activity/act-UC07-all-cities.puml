@@ -1,0 +1,10 @@
+@startuml
+title Activity – UC07 All cities (world)
+start
+:Open "Cities (world)" report;
+:Optional filters (order, N);
+:Validate params;
+:SQL: SELECT city.Name, country.Name, city.District, city.Population\nFROM city JOIN country ON city.CountryCode = country.Code\nORDER BY city.Population DESC [LIMIT N];
+:Render table (City, Country, District, Population);
+stop
+@enduml

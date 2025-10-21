@@ -1,0 +1,9 @@
+@startuml
+title Activity – UC17 All capitals (world)
+start
+:Open "Capital cities (world)" report;
+:Join country.Capital -> city.ID;
+:SQL: SELECT c.Name AS Country, ci.Name AS Capital, ci.Population\nFROM country c JOIN city ci ON c.Capital = ci.ID\nORDER BY ci.Population DESC;
+:Render table (Country, Capital, Population);
+stop
+@enduml

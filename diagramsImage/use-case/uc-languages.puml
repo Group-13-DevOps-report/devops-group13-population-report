@@ -1,0 +1,11 @@
+@startuml
+title Use Case – Languages (UC32)
+left to right direction
+actor "Executive User" as Exec
+actor "Data Analyst" as Analyst
+package "Languages" {
+  usecase UC32 as "People who speak 5 key languages"
+}
+Exec --> UC32
+Analyst --> UC32
+@enduml

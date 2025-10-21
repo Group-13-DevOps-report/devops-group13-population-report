@@ -1,0 +1,55 @@
+@startuml
+title Class Diagram – Domain + DAO
+
+class Country {
+  +Code : char(3)
+  +Name : varchar
+  +Continent : enum
+  +Region : varchar
+  +Population : int
+  +Capital : int  ' FK -> City.ID
+}
+
+class City {
+  +ID : int
+  +Name : varchar
+  +CountryCode : char(3)  ' FK -> Country.Code
+  +District : varchar
+  +Population : int
+}
+
+class CountryLanguage {
+  +CountryCode : char(3)
+  +Language : varchar
+  +IsOfficial : enum
+  +Percentage : float
+}
+
+class CountryDTO {
+  +code : String
+  +name : String
+  +continent : String
+  +region : String
+  +population : long
+  +capital : String
+}
+
+class CityDTO {
+  +name : String
+  +country : String
+  +district : String
+  +population : long
+}
+
+class Database {
+  +connect(host, port, db, user, pass) : void
+  +getAllCountries() : List<CountryDTO>
+  +getTopNCountries(n:int) : List<CountryDTO>
+  +getAllCities() : List<CityDTO>
+  +disconnect() : void
+}
+
+Country "1" -- "0..*" City : has
+Country "1" -- "0..*" CountryLanguage : speaks
+City "0..1" -- "1" Country : belongs to
+@enduml

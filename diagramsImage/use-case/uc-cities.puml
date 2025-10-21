@@ -1,0 +1,27 @@
+@startuml
+title Use Cases – Cities (UC07–UC16)
+left to right direction
+actor "Data Analyst" as A
+package "Cities" {
+  usecase UC07 as "All cities (world)"
+  usecase UC08 as "Cities by continent"
+  usecase UC09 as "Cities by region"
+  usecase UC10 as "Cities by country"
+  usecase UC11 as "Cities by district"
+  usecase UC12 as "Top N cities (world)"
+  usecase UC13 as "Top N cities (continent)"
+  usecase UC14 as "Top N cities (region)"
+  usecase UC15 as "Top N cities (country)"
+  usecase UC16 as "Top N cities (district)"
+}
+A --> UC07
+A --> UC08
+A --> UC09
+A --> UC10
+A --> UC11
+A --> UC12
+A --> UC13
+A --> UC14
+A --> UC15
+A --> UC16
+@enduml

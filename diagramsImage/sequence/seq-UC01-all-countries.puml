@@ -1,0 +1,14 @@
+@startuml
+title Sequence – UC01 All countries (world)
+actor User
+participant UI
+participant Service
+database "MySQL (world)" as DB
+
+User -> UI : choose "All countries"
+UI -> Service : getCountries(N, order)
+Service -> DB : SELECT ... FROM country ORDER BY Population DESC [LIMIT N]
+DB --> Service : rows
+Service --> UI : list<CountryDTO>
+UI --> User : render table
+@enduml

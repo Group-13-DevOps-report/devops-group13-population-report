@@ -1,0 +1,11 @@
+@startuml
+title Activity – UC23 Population by Continent (total / in cities / not in cities)
+start
+:Select continent(s) or ALL;
+:Compute total population by continent;
+:Compute population in cities via city-country join;
+:Compute not-in-cities = total - in-cities;
+:Calculate percentages;
+:Render table (Continent, Total, In Cities, Not In Cities, % In, % Not In);
+stop
+@enduml

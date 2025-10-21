@@ -1,0 +1,18 @@
+@startuml
+title Activity – UC01 All countries (world)
+start
+:Open "Countries (world)" report;
+:Input optional N/order;
+:Validate params;
+if (Valid?) then (yes)
+  :SQL: SELECT Code, Name, Continent, Region,\nPopulation, Capital FROM country\nORDER BY Population DESC [LIMIT N];
+  if (Rows > 0?) then (yes)
+    :Render table (required columns);
+  else (no)
+    :Show "No data";
+  endif
+else (no)
+  :Show validation errors;
+endif
+stop
+@enduml

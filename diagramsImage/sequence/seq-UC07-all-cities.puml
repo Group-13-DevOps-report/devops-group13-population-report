@@ -1,0 +1,14 @@
+@startuml
+title Sequence – UC07 All cities (world)
+actor User
+participant UI
+participant Service
+database "MySQL (world)" as DB
+
+User -> UI : choose "All cities"
+UI -> Service : getCities(N, order)
+Service -> DB : SELECT city.Name, country.Name, city.District, city.Population\nFROM city JOIN country ON city.CountryCode = country.Code\nORDER BY city.Population DESC [LIMIT N]
+DB --> Service : rows
+Service --> UI : list<CityDTO>
+UI --> User : render table
+@enduml

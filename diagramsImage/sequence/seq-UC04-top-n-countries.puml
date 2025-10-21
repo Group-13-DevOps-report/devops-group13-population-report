@@ -1,0 +1,14 @@
+@startuml
+title Sequence – UC04 Top N countries (world)
+actor Analyst
+boundary Main
+control DAO as Database
+database "MySQL (world)" as DB
+
+Analyst -> Main : request "Top N countries"
+Main -> Database : getTopNCountries(n)
+Database -> DB : SELECT Name, Population FROM country\nORDER BY Population DESC LIMIT n
+DB --> Database : ResultSet
+Database --> Main : List<CountryDTO>
+Main --> Analyst : Render Top N table
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+title Use Cases – Populations (UC23–UC31)
+left to right direction
+actor "Data Analyst" as A
+actor "Executive User" as E
+package "Populations" {
+  usecase UC23 as "Continent: total / in cities / not in cities"
+  usecase UC24 as "Region: total / in cities / not in cities"
+  usecase UC25 as "Country: total / in cities / not in cities"
+  usecase UC26 as "World population"
+  usecase UC27 as "Population by continent"
+  usecase UC28 as "Population by region"
+  usecase UC29 as "Population by country"
+  usecase UC30 as "Population by district"
+  usecase UC31 as "Population by city"
+}
+A --> UC23
+A --> UC24
+A --> UC25
+A --> UC26
+A --> UC27
+A --> UC28
+A --> UC29
+A --> UC30
+A --> UC31
+E --> UC26
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+title Use Cases – Capital Cities (UC17–UC22)
+left to right direction
+actor "Data Analyst" as A
+package "Capital Cities" {
+  usecase UC17 as "All capitals (world)"
+  usecase UC18 as "Capitals by continent"
+  usecase UC19 as "Capitals by region"
+  usecase UC20 as "Top N capitals (world)"
+  usecase UC21 as "Top N capitals (continent)"
+  usecase UC22 as "Top N capitals (region)"
+}
+A --> UC17
+A --> UC18
+A --> UC19
+A --> UC20
+A --> UC21
+A --> UC22
+@enduml

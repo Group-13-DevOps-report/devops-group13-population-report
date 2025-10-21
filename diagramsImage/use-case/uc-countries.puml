@@ -1,0 +1,19 @@
+@startuml
+title Use Cases – Countries (UC01–UC06)
+left to right direction
+actor "Data Analyst" as A
+package "Countries" {
+  usecase UC01 as "All countries (world)"
+  usecase UC02 as "Countries by continent"
+  usecase UC03 as "Countries by region"
+  usecase UC04 as "Top N countries (world)"
+  usecase UC05 as "Top N countries (continent)"
+  usecase UC06 as "Top N countries (region)"
+}
+A --> UC01
+A --> UC02
+A --> UC03
+A --> UC04
+A --> UC05
+A --> UC06
+@enduml
