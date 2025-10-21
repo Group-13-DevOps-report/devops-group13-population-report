@@ -1,0 +1,14 @@
+# Keep build context small; allow only the shaded fat JAR inside target
+target/*
+!target/world-population-app.jar
+
+# never send these to Docker context
+.git
+.github
+.gitignore
+.mvn/
+.idea/
+.vscode/
+*.iml
+**/.DS_Store
+README.md

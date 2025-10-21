@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ develop, master, "feature/**", "release/**" ]
+  pull_request:
+    branches: [ develop, master, "feature/**", "release/**" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "24"
+      - name: Ensure mvnw is executable
+        run: chmod +x mvnw
+      - name: Build & test (Maven Wrapper)
+        run: ./mvnw -B -ntp "-Dstyle.color=always" clean verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: target/world-population-app.jar
+
+  docker:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: app-jar
+          path: target
+      - name: Login to Docker Hub (optional)
+        if: ${{ secrets.DOCKERHUB_USERNAME && secrets.DOCKERHUB_TOKEN }}
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build Docker image (retry up to 5x)
+        shell: bash
+        run: |
+          for i in 1 2 3 4 5; do
+            docker build --pull -t sem-app:ci --build-arg JAR=target/world-population-app.jar . && break
+            echo "Build failed (attempt $i). Waiting and retrying…"
+            sleep 30
+          done
+      - name: Smoke test - image exists
+        run: docker image inspect sem-app:ci >/dev/null
