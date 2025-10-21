@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Code of Conduct (Contributor Covenant v2.1)
+    url: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
+    about: Please read before contributing.
