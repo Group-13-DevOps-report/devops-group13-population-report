@@ -2,7 +2,6 @@
 
 [![CI master](https://github.com/Group-13-DevOps-report/devops-group13-population-report/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Group-13-DevOps-report/devops-group13-population-report/actions)
 [![CI develop](https://github.com/Group-13-DevOps-report/devops-group13-population-report/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/Group-13-DevOps-report/devops-group13-population-report/actions)
-[![CodeQL](https://github.com/Group-13-DevOps-report/devops-group13-population-report/actions/workflows/codeql.yml/badge.svg)](https://github.com/Group-13-DevOps-report/devops-group13-population-report/actions/workflows/codeql.yml)
 [![Release](https://img.shields.io/github/v/release/Group-13-DevOps-report/devops-group13-population-report?display_name=tag)](https://github.com/Group-13-DevOps-report/devops-group13-population-report/releases)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 ![Java](https://img.shields.io/badge/Java-24-informational)
